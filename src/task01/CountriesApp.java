@@ -41,5 +41,6 @@ public class CountriesApp {
         } else {
             System.out.println("Mapa nie zawiera kraju o takim kodzie.");
         }
+        scanner.close();
     }
 }
