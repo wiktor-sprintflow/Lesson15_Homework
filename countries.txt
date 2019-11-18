@@ -1,0 +1,8 @@
+PL;Polska;38000000
+DE;Niemcy;83000000
+GB;Wielka Brytania;66000000
+IT;Włochy;60000000
+FR;Francja;67000000
+ES;Hiszpania;47000000
+CZ;Czechy;10000000
+US;Stany Zjednoczone;326000000
