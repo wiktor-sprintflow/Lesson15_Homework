@@ -10,13 +10,13 @@ public class VehiclesApp {
         Queue<Vehicle> vehicleQueue = new LinkedList<>();
 
         try {
-            showMenu(vehicleQueue);
+            queueController(vehicleQueue);
         } catch (InputMismatchException ex) {
             System.err.println("Wprowadzono niepoprawny typ.");
         }
     }
 
-    private static void showMenu(Queue<Vehicle> vehicleQueue) {
+    private static void queueController(Queue<Vehicle> vehicleQueue) {
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -35,7 +35,8 @@ public class VehiclesApp {
                     terminateApplication();
                     break;
                 case 1:
-                    addNewVehicle(vehicleQueue, scanner);
+                    vehicleQueue.offer(addNewVehicle(scanner));
+                    System.out.println("\nDodano pojazd do kolejki\n");
                     break;
                 case 2:
                     inspectNextVehicle(vehicleQueue);
@@ -54,7 +55,7 @@ public class VehiclesApp {
 
     }
 
-    private static void addNewVehicle(Queue<Vehicle> vehicleQueue, Scanner scanner) {
+    private static Vehicle addNewVehicle(Scanner scanner) {
         System.out.println("Podaj typ:");
         String type = scanner.nextLine();
         System.out.println("Podaj markę:");
@@ -70,8 +71,7 @@ public class VehiclesApp {
         System.out.println("Podaj VIN:");
         String vin = scanner.nextLine();
 
-        vehicleQueue.offer(new Vehicle(type, brand, model, year, mileage, vin));
-        System.out.println("\nDodano pojazd do kolejki\n");
+        return new Vehicle(type, brand, model, year, mileage, vin);
     }
 
     private static void inspectNextVehicle(Queue<Vehicle> vehicleQueue) {
